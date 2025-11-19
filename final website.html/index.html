@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Restaurant Menu</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!--header section-->
+  <header class="navbar">
+    <div class="logo">Jojing’s Biryani</div>
+
+    <div class="signlog">
+      <a href="#signupModal" id="openSignup">Sign Up</a>
+      <a href="#loginModal" id="openLogin">Log In</a>
+    </div>
+
+    <div class="cart-container">
+      <li class="cart" onclick="openCart()">🛒 <span id="cart-count">0</span></li>
+    </div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+    
+    <nav>
+      <ul id="nav-list">
+        
+        <li><a href="#home">Home</a></li>
+
+        <li class="dropdown">
+          <a href="#" class="dropbtn">Products</a>
+          <div class="dropdown-content">
+            <a href="#pork-dishes">Pork Dishes</a>
+            <a href="#Beef Dishes">Beef Dishes</a>
+            <a href="#Chicken Dishes">Chicken Dishes</a>
+            <a href="#Seafood Dishes">Seafood Dishes</a>
+            <a href="#Vegetable and Salad Dishes">Vegetable and Salad Dishes</a>
+            <a href="#Soup Dishes">Soup Dishes</a>
+            <a href="#Pasta Dishes">Pasta Dishes</a>
+            <a href="#Noodles Dishes">Noodles Dishes</a>
+            <a href="#Rice Dishes">Rice Dishes</a>
+            <a href="#biryani/Kabsa/bukhari Dishes">Biryani/Kabsa/Bukhari</a>
+            <a href="#Shakes Dishes">Shakes</a>
+            <a href="#Iced Coffee Dishes">Iced Coffee</a>
+            <a href="#Cold Drinks Dishes">Cold Drinks</a>
+            <a href="#Hot Drinks Dishes">Hot Drinks</a>
+            <a href="#Burger And Fries Dishes">Burgers & Fries</a>
+            <a href="#Desserts Dishes">Desserts</a>
+            <a href="#Mukbang Set">Mukbang Set</a>
+            <a href="#Snacks And Appetizers">Snacks & Appetizers</a>
+          </div>
+        </li>
+        <li><a href="#about-us">About Us</a></li>
+        <li><a href="#contact-us">Contact Us</a></li>
+       
+      </ul>
+    </nav>
+  </header>
+
+ <!-- Sign Up Modal -->
+  <div id="signupModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeSignup">x</span>
+      <h2>Create Account</h2>
+      <form action="/submit-signup" method="POST">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" placeholder="John Doe" required />
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="you@example.com" required />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" placeholder="••••••••" required />
+
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="confirm-password" name="confirm_password" placeholder="••••••••" required />
+
+        <button class="but" type="submit">Sign Up</button>
+      </form>
+      <div class="link">
+        Already have an account? <a href="#" id="switchToLogin">Log in</a>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Log In Modal -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeLogin">x</span>
+      <h2>Log In</h2>
+      <form action="/login" method="POST">
+        <label for="login-email">Email</label>
+        <input type="email" id="login-email" name="email" placeholder="you@example.com" required />
+
+        <label for="login-password">Password</label>
+        <input type="password" id="login-password" name="password" placeholder="••••••••" required />
+
+        <button class="but" type="submit">Log In</button>
+      </form>
+      <div class="link">
+        Don't have an account? <a href="#" id="switchToSignup">Sign Up</a>
+      </div>
+    </div>
+  </div>
+
+  
+  <!-- Home Section -->
+  <section id="home" class="home-container">
+    <div class="background">
+      <img src="home.jpg" alt="Restaurant background">
+    </div>
+  </section>
+  
+  <!-- Pork Dishes Section -->
+  
+    <section id="pork-dishes" class="menu">
+      <h2>Pork Ala Carte</h2>
+
+      <div class="menu-grid">
+
+        <div class="product">
+          <img src="baby2.jpg" alt="Baby Back Ribs">
+          <h3>Baby Back Ribs</h3>
+          <p>₱200</p>
+          <p>
+            <button class="button" onclick="addToCart('Baby Back Ribs', 200)">Add to Cart</button>
+          </p>
+        </div>
+
+        <div class="product">
+          <img src="crispy.jpg" alt="Crispy Dinakdakan">
+          <h3>Crispy Dinakdakan</h3>
+          <p>₱499</p>
+          <p>
+            <button class="button" onclick="addToCart('Crispy Dinakdakan', 499)">Add to Cart</button>
+          </p>
+        </div>
+
+        <div class="product">
+          <img src="kare.jpg" alt="Crispy Kare Kare">
+          <h3>Crispy Kare Kare</h3>
+          <p>₱420</p>
+          <p>
+            <button class="button" onclick="addToCart('Crispy Kare Kare', 420)">Add to Cart</button>
+          </p>
+        </div>
+
+        <div class="product">
+          <img src="dinuguan.jpg" >
+          <h3>Crispy Dinuguan</h3>
+          <p>₱395</p>
+          <p>
+            <button class="button" onclick="addToCart('Crispy Dinuguan', 395)">Add to Cart</button>
+          </p>
+        </div>
+        
+      </div>
+    </section>
+
+      <!-- Beef Dishes Section -->
+      <section id="Beef Dishes" class="menu">
+        <h2>Beef</h2>
+        <div class="menu-grid">
+          <div class="product">
+            <img src="roast.jpg" alt="Roast Beef">
+            <h3>Roast Beef</h3>
+            <h4>w/  butter corn or vegetable salad</h4>
+            <p>₱599</p>
+            <p>
+              <button class="button" onclick="addToCart('Roast Beef', 599)">Add to Cart</button>
+            </p>
+          </div>
+
+
+          <div class="product">
+            <img src="pepper.jpg" alt="Pepper Steak Beef">
+            <h3>Pepper Steak Beef</h3>
+            <h4>w/ mashed potato and butter corn </h4>
+            <p>₱799</p>
+            <p>
+              <button class="button" onclick="addToCart('Pepper Beef Steak', 799)">Add to Cart</button>
+            </p>
+          </div>
+
+          <div class="product">
+            <img src="curry.jpg" alt="Beef Curry Special">
+            <h3>Beef Curry Special</h3>
+            <p>₱499</p>
+            <p>
+              <button class="button" onclick="addToCart('Beef Curry Special', 499)">Add to Cart</button>
+            </p>
+          </div>
+
+          <div class="product">
+            <img src="kare.jpg" alt="Beef Curry Special">
+            <h3>Beef Kare Kare</h3>
+            <p>₱479</p>
+            <p>
+              <button class="button" onclick="addToCart('Beef Kare Kare', 479)">Add to Cart</button>
+            </p>
+          </div>
+
+          <div class="product">
+            <img src="broccoli.jpg" alt="Beef Curry Special">
+            <h3>Beef Broccoli</h3>
+            <p>₱435</p>
+            <p>
+              <button class="button" onclick="addToCart('Beef Broccoli', 435)">Add to Cart</button>
+            </p>
+          </div>
+
+          <div class="product">
+            <img src="tikka.jpg" alt="Beef Curry Special">
+            <h3>Beef Tikka Masala</h3>
+            <p>₱499</p>
+            <p>
+              <button class="button" onclick="addToCart('Beef Tikka Masala', 499)">Add to Cart</button>
+            </p>
+          </div>
+
+          <div class="product">
+            <img src="kebab.jpg" alt="Beef Curry Special">
+            <h3>Beef Kebab Platter</h3>
+            <h4>w/ vegetable salad</h4>
+            <p>₱699</p>
+            <p>
+              <button class="button" onclick="addToCart('Beef Kebab Platter', 699)">Add to Cart</button>
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- Chicken Dishes Section -->
+      <section id="Chicken Dishes" class="menu">
+        <h2>Chicken</h2>
+        <div class="menu-grid">
+          <div class="product">
+            <img src="aromatic.jpg" alt="Roast Beef">
+            <h3> Aromatic Roast Chicken</h3>
+            <p>₱499</p>
+            <p>
+              <button class="button" onclick="addToCart('Aromatic Roast Chicken', 499)">Add to Cart</button>
+            </p>
+          </div>
+
+
+          <div class="product">
+            <img src="classic.jpg">
+            <h3>Classic Fried Chicken</h3>
+            <h4>w/ mashed potato and buttered corn or vegetable salad</h4>
+            <p>₱599</p>
+              <button class="button" onclick="addToCart('Classic Fried Chicken', 599)">Add to Cart</button>
+            </p>
+          </div>
+
+
+          <div class="product">
+            <img src="buffalo.jpg" >
+            <h3>Buffalo Wings Platter</h3>
+            <p>₱499</p>
+            <p>
+              <button class="button" onclick="addToCart('Buffalo Wings Platter', 499)">Add to Cart</button>
+            </p>
+          </div>
+
+          
+          <div class="product">
+            <img src="chicken.jpg" >
+            <h3>Creamy Chicken Mushroom w/ Broccoli</h3>
+            <p>₱599</p>
+            <p>
+              <button class="button" onclick="addToCart('Creamy Chicken Mushroom w/ Broccoli', 599)">Add to Cart</button>
+            </p>
+          </div>
+
+          <div class="product">
+            <img src="chicken.jpg" >
+            <h3>Chicken and Chips</h3>
+            <p>₱499</p>
+            <p>
+              <button class="button" onclick="addToCart('Chicken and Chips', 499)">Add to Cart</button>
+            </p>
+          </div>
+
+          <div class="product">
+            <img src="kabob.jpg" >
+            <h3>Chicken Kabob Skewer</h3>
+            <h4>w/ vegetable salad</h4>
+            <p>₱599</p>
+            <p>
+              <button class="button" onclick="addToCart('Chicken Kabob Skewer', 599)">Add to Cart</button>
+            </p>
+          </div>
+
+          <div class="product">
+            <img src="butter.jpg" >
+            <h3>Butter Chicken</h3>
+            <p>₱425</p>
+            <p>
+              <button class="button" onclick="addToCart('Butter Chicken', 425)">Add to Cart</button>
+            </p>
+          </div>
+
+          <div class="product">
+            <img src="ctikka.jpg" >
+            <h3>Chicken Tikka Masala</h3>
+            <p>₱475</p>
+            <p>
+              <button class="button" onclick="addToCart('Chicken Tikka Masala', 475)">Add to Cart</button>
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- Saefood Dishes Section -->
+      <section id="Seafood Dishes" class="menu">
+        <h2>Seafood</h2>
+        <div class="menu-grid">
+          <div class="product">
+            <img src="calamares2.jpg" alt="Roast Beef">
+            <h3> Calamares on a Stick</h3>
+            <h4>1pc to 2pcs</h4>
+            <p>₱250</p>
+            <p>
+              <button class="button" onclick="addToCart(' Calamares on a Stick', 250)">Add to Cart</button>
+            </p>
+          </div>
+
+
+          <div class="product">
+            <img src="adobo.jpg">
+            <h3>Adobong Pusit in Olive Oil</h3>
+            <p>₱399</p>
+            <p>
+              <button class="button" onclick="addToCart('Adobong Pusit in Olive Oil', 399)">Add to Cart</button>
+            </p>
+          </div>
+
+
+          <div class="product">
+            <img src="mixed.jpg">
+            <h3>Mixed Seafood Boil</h3>
+            <p>₱579</p>
+            <p>
+              <button class="button" onclick="addToCart('Mixed Seafood Boil', 579)">Add to Cart</button>
+            </p>
+          </div>
+
+          <div class="product">
+            <img src="grilledf.jpg">
+            <h3>Grilled Fish Steak</h3>
+            <h4>2pcs(Malakitok, Blue marlin, Tanique ) </h4>
+            <p>₱520</p>
+            <p>
+              <button class="button" onclick="addToCart('Grilled Fish Steak', 520)">Add to Cart</button>
+            </p>
+          </div>
+
+          <div class="product">
+            <img src="buttered.jpg">
+            <h3>Buttered Srimp</h3>
+            <p>₱425</p>
+            <p>
+              <button class="button" onclick="addToCart('Buttered Srimp', 425)">Add to Cart</button>
+            </p>
+          </div>
+
+          <div class="product">
+            <img src="tempura.jpg">
+            <h3>Tempura Platter(15pcs)</h3>
+            <p>₱425</p>
+            <p>
+              <button class="button" onclick="addToCart('Tempura Platter', 425)">Add to Cart</button>
+            </p>
+          </div>
+
+          <div class="product">
+            <img src="grilleds.jpg">
+            <h3>Grilled Salmon w/ Buttered Garlic</h3>
+            <h4>w/ mashed potato and buttered garlic</h4>
+            <p>₱799</p>
+            <p>
+              <button class="button" onclick="addToCart('Grilled Salmon w/ Buttered Garlic', 799)">Add to Cart</button>
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- Vegetable and Salad Dishes Section -->
+      <section id="Vegetable and Salad Dishes" class="menu">
+        <h2>Vegetable and Salad</h2>
+        <div class="menu-grid">
+          <div class="product">
+            <img src="chopsuey.jpg">
+            <h3> Seafood Chopsuey</h3>
+            <p>₱320</p>
+            <p>
+              <button class="button" onclick="addToCart('Seafood Chopsuey', 320)">Add to Cart</button>
+            </p>
+          </div>
+
+
+          <div class="product">
+            <img src="kangkong.jpg">
+            <h3>Garlic Oyster Kangkong w/Tofu</h3>
+            <p>₱185</p>
+            <p>
+              <button class="button" onclick="addToCart('Garlic Oyster Kangkong w/Tofu', 185)">Add to Cart</button>
+            </p>
+          </div>
+
+
+          <div class="product">
+            <img src="steamed.jpg">
+            <h3>Steamed Broccolli</h3>
+            <p>₱285</p>
+            <p>
+            <button class="button" onclick="addToCart('Steamed Broccolli', 285)">Add to Cart</button>
+            </p>
+          </div>
+
+          <div class="product">
+            <img src="salmon.jpg">
+            <h3>Salmon Salad</h3>
+            <p>₱295</p>
+            <p>
+            <button class="button" onclick="addToCart('Salmon Salad', 295)">Add to Cart</button>
+            </p>
+          </div>
+
+          <div class="product">
+            <img src="gsalad.jpg">
+            <h3>Grilled Chicken Salad</h3>
+            <p>₱265</p>
+            <p>
+              <button class="button" onclick="addToCart('Grilled Chicken Salad', 265)">Add to Cart</button>
+            </p>
+          </div>
+
+          <div class="product">
+            <img src="kani.jpg">
+            <h3>Kani Salad</h3>
+            <p>₱255</p>
+            <p>
+              <button class="button" onclick="addToCart('Kani Salad', 255)">Add to Cart</button>
+            </p>
+          </div>
+
+          <div class="product">
+            <img src="mashed.jpg">
+            <h3>Mashed Potato w/ Corn</h3>
+            <p>₱155</p>
+            <p>
+              <button class="button" onclick="addToCart('Mashed Potato w/ Corn', 155)">Add to Cart</button>
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- Soup Dishes Section -->
+      <section id="Soup Dishes" class="menu">
+        <h2>Soup</h2>
+        <div class="menu-grid">
+          <div class="product">
+            <img src="crab.jpg" alt="Roast Beef">
+            <h3> Crab And Corn Soup</h3>
+            <p>₱320</p>
+            <p>
+              <button class="button" onclick="addToCart(' Crab And Corn Soup', 320)">Add to Cart</button>
+            </p>
+          </div>
+
+
+          <div class="product">
+            <img src="sinigang.jpg" alt="Pepper Steak Beef">
+            <h3>Sinigang na hipon</h3>
+            <p>₱320</p>
+            <p>
+              <button class="button" onclick="addToCart('Sinigang na hipon', 320)">Add to Cart</button>
+            </p>
+          </div>
+
+          <div class="product">
+            <img src="clams.jpg" alt="Clams Lauya">
+            <h3>Clams Lauya</h3>
+
+            <!-- SIZE OPTIONS -->
+            <select id="size-clams-lauya" class="size-option">
+              <option value="Medium" data-price="165">Medium - ₱165</option>
+              <option value="Large" data-price="220">Large - ₱220</option>
+            </select>
+
+            <p>
+              <button class="button" onclick="addProductWithSize('Clams Lauya', 'size-clams-lauya')">Add to Cart</button>
+            </p>
+          </div>
+
+          
+          <div class="product">
+            <img src="bulalo.jpg" alt="Pepper Steak Beef">
+            <h3>Bulalo</h3>
+            <p>₱299</p>
+            <p>
+              <button class="button" onclick="addToCart('Bulalo', 299)">Add to Cart</button>
+            </p>
+          </div>
+
+          <div class="product">
+            <img src="bulalo.jpg" alt="Pepper Steak Beef">
+            <h3>Wanton Soup Beef and Seafood</h3>
+            <p>₱249</p>
+            <p>
+              <button class="button" onclick="addToCart('Wanton Soup Beef and Seafood', 249)">Add to Cart</button>
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+
+    <!-- Pasta Dishes Section -->
+      <section id="Pasta Dishes" class="menu">
+        <h2>Pasta</h2>
+        <div class="menu-grid">
+          <div class="product">
+            <img src="srimp.jpg" alt="Roast Beef">
+            <h3> Shrimp Pesto</h3>
+            <p>₱249</p>
+            <p>
+              <button class="button" onclick="addToCart(' Shrimp Pesto', 249)">Add to Cart</button>
+            </p>
+          </div>
+
+
+          <div class="product">
+            <img src="pasta.jpg" alt="Pepper Steak Beef">
+            <h3>Seafood Pasta</h3>
+            <p>₱249</p>
+            <p>
+              <button class="button" onclick="addToCart('Seafood Pasta', 249)">Add to Cart</button>
+            </p>
+          </div>
+
+
+          <div class="product">
+            <img src="tuna.jpg" alt="Beef Curry Special">
+            <h3>Tuna pasta</h3>
+            <p>₱199</p>
+            <p>
+              <button class="button" onclick="addToCart('Seafood Pasta', 199)">Add to Cart</button>
+            </p>
+          </div>
+
+          <div class="product">
+            <img src="Alfredo.jpg" alt="Beef Curry Special">
+            <h3>Chicken Alfredo</h3>
+            <p>₱229</p>
+            <p>
+              <button class="button" onclick="addToCart('Chicken Alfredo', 229)">Add to Cart</button>
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+        <!-- noodles Dishes Section -->
+        <section id="Noodles Dishes" class="menu">
+          <h2>Noodles</h2>
+          <div class="menu-grid">
+            <div class="product">
+              <img src="chami.jpg" alt="Roast Beef">
+              <h3>Chami Tamis Anghang</h3>
+              <p>₱280</p>
+              <p>
+              <button class="button" onclick="addToCart('Chami Tamis Anghang', 280)">Add to Cart</button>
+              </p>
+            </div>
+
+
+            <div class="product">
+              <img src="miki.jpg" alt="Pepper Steak Beef">
+              <h3>Miki Bihon</h3>
+              <p>₱280</p>
+              <p>
+              <button class="button" onclick="addToCart('Miki Bihon', 280)">Add to Cart</button>
+              </p>
+            </div>
+
+
+            <div class="product">
+              <img src="guisado.jpg" alt="Beef Curry Special">
+              <h3>Miki Guisado</h3>
+              <p>₱280</p>
+              <p>
+              <button class="button" onclick="addToCart('Miki Guisado', 280)">Add to Cart</button>
+              </p>
+            </div>
+
+          </div>
+        </section>
+
+        <!-- rice Dishes Section -->
+        <section id="Rice Dishes" class="menu">
+          <h2>Rice</h2>
+          <div class="menu-grid">
+            <div class="product">
+              <img src="rice.jpg">
+              <h3>Biryani Rice</h3>
+              
+              <!-- SIZE OPTIONS -->
+              <select id="size-Biryani Rice" class="size-option">
+                <option value="Small" data-price="65">Small - ₱65</option>
+                <option value="Medium" data-price="220">Medium - ₱220</option>
+              </select>
+              <p>
+                <button class="button" onclick="addProductWithSize('Biryani Rice', 'size-Biryani Rice')">Add to Cart</button>
+              </p>
+            </div>
+
+
+            <div class="product">
+              <img src="kabsa.jpg">
+              <h3>Kabsa Rice</h3>
+
+              <!-- SIZE OPTIONS -->
+              <select id="size-Kabsa Rice" class="size-option">
+                <option value="Small" data-price="165">Small - ₱65</option>
+                <option value="Medium" data-price="320">Medium - ₱320</option>
+              </select>
+
+              <p>
+                <button class="button" onclick="addProductWithSize('Kabsa Rice', 'size-Kabsa Rice')">Add to Cart</button>
+              </p>
+            </div>
+
+
+            <div class="product">
+              <img src="bukhari.jpg">
+              <h3>Bhukari Rice</h3>
+              
+              <!-- SIZE OPTIONS -->
+              <select id="size-Bhukari Rice" class="size-option">
+                <option value="Small" data-price="100">Small - ₱100</option>
+                <option value="Medium" data-price="340">Medium - ₱340</option>
+              </select>
+
+              <p>
+                <button class="button" onclick="addProductWithSize('Bhukari Rice', 'size-Bhukari Rice')">Add to Cart</button>
+              </p>
+            </div>
+
+            <div class="product">
+              <img src="young.jpg">
+              <h3>Young Chow Rice</h3>
+              <p>₱320</p>
+              <p>
+              <button class="button" onclick="addToCart('Young Chow Rice', 320)">Add to Cart</button>
+              </p>
+            </div>
+
+            <div class="product">
+              <img src="binagoongan.jpg">
+              <h3>Binagoongan Rice</h3>
+              
+              <!-- SIZE OPTIONS -->
+              <select id="size-Binagoongan Rice" class="size-option">
+                <option value="Small" data-price="120">Small - ₱120</option>
+                <option value="Meduim" data-price="295">Medium - ₱295</option>
+              </select>
+
+              <p>
+                <button class="button" onclick="addProductWithSize('Binagoongan Rice', 'size-Binagoongan Rice')">Add to Cart</button>
+              </p>
+            </div>
+
+            <div class="product">
+              <img src="plain.jpg">
+              <h3>Plain Rice</h3>
+              
+              <!-- SIZE OPTIONS -->
+              <select id="size-Plain Rice" class="size-option">
+                <option value="Small" data-price="40">Small - ₱40</option>
+                <option value="Medium" data-price="145">Medium - ₱145</option>
+              </select>
+
+              <p>
+                <button class="button" onclick="addProductWithSize('Plain Rice', 'size-Plain Rice')">Add to Cart</button>
+              </p>
+            </div>
+      
+          </div>
+        </section>
+        
+        <!-- biryani/Kabsa/bukhari Dishes Section -->
+      <section id="biryani/Kabsa/bukhari Dishes" class="menu">
+        <h2>biryani/Kabsa/bukhari</h2>
+        <div class="menu-grid">
+          <div class="product">
+            <img src="grilled.jpg" alt="Roast Beef">
+            <h3>Roast Chicken or Grilled Chicken Biryani</h3>
+            
+              <!-- SIZE OPTIONS -->
+              <select id="size-Roast Chicken or Grilled Chicken Biryani" class="size-option">
+                <option value="Solo" data-price="249">Solo - ₱249</option>
+                <option value="Double" data-price="399">Double - ₱399</option>
+                <option value="Family" data-price="699">Family - ₱699</option>
+              </select>
+              <p>
+                <button class="button" onclick="addProductWithSize('Roast Chicken or Grilled Chicken Biryani', 'size-Roast Chicken or Grilled Chicken Biryani')">Add to Cart</button>
+              </p>
+          </div>
+
+
+          <div class="product">
+            <img src="beef.jpg" alt="Pepper Steak Beef">
+            <h3>Roast Beef Biryani</h3>
+            
+              <!-- SIZE OPTIONS -->
+              <select id="size-Roast Beef Biryani" class="size-option">
+                <option value="Solo" data-price="289">Solo - ₱289</option>
+                <option value="Double" data-price="499">Double - ₱499</option>
+                <option value="Family" data-price="799">Family - ₱799</option>
+              </select>
+              <p>
+                <button class="button" onclick="addProductWithSize('Roast Beef Biryani', 'size-Roast Beef Biryani')">Add to Cart</button>
+              </p>
+          </div>
+
+          <div class="product">
+            <img src="roastp.jpg" alt="Pepper Steak Beef">
+            <h3>Roast Pork Biryani</h3>
+            
+              <!-- SIZE OPTIONS -->
+              <select id="size-Roast Pork Biryani" class="size-option">
+                <option value="Solo" data-price="289">Solo - ₱289</option>
+                <option value="Double" data-price="499">Double - ₱499</option>
+                <option value="Family" data-price="799">Family - ₱799</option>
+              </select>
+              <p>
+                <button class="button" onclick="addProductWithSize('Roast Pork Biryani', 'size-Roast Pork Biryani')">Add to Cart</button>
+              </p>
+          </div>
+
+          <div class="product">
+            <img src="baby2.jpg" alt="Pepper Steak Beef">
+            <h3>Baby Back Ribs Biryani</h3>
+            
+              <!-- SIZE OPTIONS -->
+              <select id="size-Baby Back Ribs Biryani" class="size-option">
+                <option value="Solo" data-price="299">Solo - ₱299</option>
+                <option value="Double" data-price="529">Double - ₱529</option>
+                <option value="Family" data-price="799">Family - ₱799</option>
+              </select>
+              <p>
+                <button class="button" onclick="addProductWithSize('Baby Back Ribs Biryani', 'size-Baby Back Ribs Biryani')">Add to Cart</button>
+              </p>
+          </div>
+
+          <div class="product">
+            <img src="ckofta.jpg" alt="Pepper Steak Beef">
+            <h3>Chichen Kofta Kebab Biryani</h3>
+            
+              <!-- SIZE OPTIONS -->
+              <select id="size-Chichen Kofta Kebab Biryani" class="size-option">
+                <option value="Solo" data-price="279">Solo - ₱279</option>
+                <option value="Double" data-price="479">Double - ₱479</option>
+                <option value="Family" data-price="749">Family - ₱749</option>
+              </select>
+              <p>
+                <button class="button" onclick="addProductWithSize('Chichen Kofta Kebab Biryani', 'size-Chichen Kofta Kebab Biryani')">Add to Cart</button>
+              </p>
+          </div>
+
+          <div class="product">
+            <img src="bkofta.jpg" alt="Pepper Steak Beef">
+            <h3>Beef Kofta Kebab Biryani</h3>
+            
+              <!-- SIZE OPTIONS -->
+              <select id="size-Beef Kofta Kebab Biryani" class="size-option">
+                <option value="Solo" data-price="279">Solo - ₱279</option>
+                <option value="Double" data-price="489">Double - ₱489</option>
+                <option value="Family" data-price="799">Family - ₱799</option>
+              </select>
+              <p>
+                <button class="button" onclick="addProductWithSize('Beef Kofta Kebab Biryani', 'size-Beef Kofta Kebab Biryani')">Add to Cart</button>
+              </p>
+          </div>
+
+          <div class="product">
+            <img src="skewer.jpg" alt="Pepper Steak Beef">
+            <h3>Chichen Kabobs Skewer Biryani</h3>
+            
+              <!-- SIZE OPTIONS -->
+              <select id="size-Chichen Kabobs Skewer Biryani" class="size-option">
+                <option value="Solo" data-price="299">Solo - ₱299</option>
+                <option value="Double" data-price="549">Double - ₱549</option>
+                <option value="Family" data-price="799">Family - ₱799</option>
+              </select>
+              <p>
+                <button class="button" onclick="addProductWithSize('Chichen Kabobs Skewer Biryani', 'size-Chichen Kabobs Skewer Biryani')">Add to Cart</button>
+              </p>
+          </div>
+
+          <div class="product">
+            <img src="salmonb.jpg" alt="Pepper Steak Beef">
+            <h3>Salmon or Any Fish Biryani</h3>
+            
+              <!-- SIZE OPTIONS -->
+              <select id="size-Salmon or Any Fish Biryani" class="size-option">
+                <option value="Solo" data-price="399">Solo - ₱399</option>
+                <option value="To Share" data-price="789">To Share - ₱789</option>
+              </select>
+              <p>
+                <button class="button" onclick="addProductWithSize('Salmon or Any Fish Biryani', 'size-Salmon or Any Fish Biryani')">Add to Cart</button>
+              </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Shakes Dishes Section -->
+      <section id="Shakes Dishes" class="menu">
+        <h2>Shakes</h2>
+        <div class="menu-grid">
+          <div class="product">
+            <img src="mais.jpg" alt="Roast Beef">
+            <h3>Mais Con Yelo</h3>
+            <p>₱155</p>
+            <p>
+            <button class="button" onclick="addToCart('Mais Con Yelo', 155)">Add to Cart</button>
+            </p>
+          </div>
+
+
+          <div class="product">
+            <img src="banana.jpg" alt="Pepper Steak Beef">
+            <h3>Banana Con Yelo</h3>
+            <p>₱125</p>
+          <p>
+            <button class="button" onclick="addToCart('Banana Con Yelo', 125)">Add to Cart</button>
+          </p>
+          </div>
+
+
+          <div class="product">
+            <img src="fresh.jpg" alt="Beef Curry Special">
+            <h3>Fresh Lemon Shake</h3>
+            <p>₱95</p>
+          <p>
+            <button class="button" onclick="addToCart('Fresh Lemon Shake', 95)">Add to Cart</button>
+            </p>
+          </div>
+
+          
+          <div class="product">
+            <img src="freshm.jpg" alt="Beef Curry Special">
+            <h3>Fresh Ripe Mango Shake</h3>
+            <p>₱120</p>
+          <p>
+            <button class="button" onclick="addToCart('Fresh Ripe Mango Shake', 120)">Add to Cart</button>
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Iced Coffee Dishes Section -->
+      <section id="Iced Coffee Dishes" class="menu">
+        <h2>Iced Coffee</h2>
+        <div class="menu-grid">
+          <div class="product">
+            <img src="late.jpg" alt="Roast Beef">
+            <h3>Spanish Latte</h3>
+            <p>₱130</p>
+            <p>
+            <button class="button" onclick="addToCart('Spanish Latte', 130)">Add to Cart</button>
+            </p>
+          </div>
+
+
+          <div class="product">
+            <img src="cafe.jpg" alt="Pepper Steak Beef">
+            <h3>Cappuccino Latte</h3>
+            <p>₱140</p>
+            <p>
+            <button class="button" onclick="addToCart('Cappuccino Latte', 140)">Add to Cart</button>
+            </p>
+          </div>
+
+
+          <div class="product">
+            <img src="caramel.jpg" alt="Beef Curry Special">
+            <h3>Caramel Macchiato</h3>
+            <p>₱155</p>
+            <p>
+            <button class="button" onclick="addToCart('Caramel Macchiato', 155)">Add to Cart</button>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Cold Drinks Dishes Section -->
+      <section id="Cold Drinks Dishes" class="menu">
+        <h2>Cold Drinks</h2>
+        <div class="menu-grid">
+          <div class="product">
+            <img src="can.jpg" alt="Roast Beef">
+            <h3>Can Softdrinks</h3>
+            <p>₱65</p>
+            <p>
+            <button class="button" onclick="addToCart('Can Softdrinks', 65)">Add to Cart</button>
+            </p>
+          </div>
+
+
+          <div class="product">
+            <img src="mismo.jpg" alt="Pepper Steak Beef">
+            <h3>Mismo Softdrinks</h3>
+            <p>₱40</p>
+            <p>
+            <button class="button" onclick="addToCart('Mismo Softdrinks', 40)">Add to Cart</button>
+            </p>
+          </div>
+
+
+          <div class="product">
+            <img src="litro.jpg" alt="Beef Curry Special">
+            <h3>1.5L Softdrinks</h3>
+            <p>₱130</p>
+            <p>
+            <button class="button" onclick="addToCart('1.5L Softdrinks', 130)">Add to Cart</button>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Hot Drinks Dishes Section -->
+      <section id="Hot Drinks Dishes" class="menu">
+        <h2>Hot Drinks</h2>
+        <div class="menu-grid">
+          <div class="product">
+            <img src="ch.jpg" alt="Roast Beef">
+            <h3>Hot Chai Tea</h3>
+            <p>₱65</p>
+            <p>
+            <button class="button" onclick="addToCart('Hot Chai Tea', 65)">Add to Cart</button>
+            </p>
+          </div>
+
+
+          <div class="product">
+            <img src="ar.jpg" alt="Pepper Steak Beef">
+            <h3>Hot Arabic Coffee</h3>
+            <p>₱40</p>
+            <p>
+            <button class="button" onclick="addToCart('Hot Arabic Coffee', 40)">Add to Cart</button>
+            </p>
+          </div>
+
+
+          <div class="product">
+            <img src="cho.jpg" alt="Beef Curry Special">
+            <h3>hot Choco</h3>
+            <p>₱55</p>
+            <p>
+            <button class="button" onclick="addToCart('Hot Arabic Coffee', 55)">Add to Cart</button>
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Burger And Fries Dishes Section -->
+      <section id="Burger And Fries Dishes" class="menu">
+        <h2>Burger And Fries</h2>
+        <div class="menu-grid">
+          <div class="product">
+            <img src="bur.jpg" alt="Roast Beef">
+            <h3>Shocked Burger Jongjing`s Signature</h3>
+              
+            <!-- SIZE OPTIONS -->
+              <select id="size-Shocked Burger Jongjing`s Signature" class="size-option">
+                <option value="Chicken" data-price="185">Chichen - ₱185</option>
+                <option value="Beef" data-price="195">Beef - ₱195</option>
+              </select>
+              <p>
+                <button class="button" onclick="addProductWithSize('Shocked Burger Jongjing`s Signature', 'size-Shocked Burger Jongjing`s Signature')">Add to Cart</button>
+              </p>
+          </div>
+
+
+          <div class="product">
+            <img src="fr.jpg" alt="Pepper Steak Beef">
+            <h3>Traditional Fries</h3>
+           
+            <!-- SIZE OPTIONS -->
+                <option value="Medium" data-price="145">Medium - ₱145</option>
+                <option value="Large" data-price="185">Large - ₱185</option>
+              </select>
+              <p>
+                <button class="button" onclick="addProductWithSize('Traditional Fries', 'size-Traditional Fries')">Add to Cart</button>
+              </p>
+          </div>
+
+
+          <div class="product">
+            <img src="fries.jpg" alt="Beef Curry Special">
+            <h3>Jojing`s Fries or Mojos</h3>
+            <p>₱130</p>
+              <p>
+                <button  class="button"onclick="addToCart('Jojing`s Fries or Mojos', 130)">Add to Cart</button>
+              </p>
+          </div>
+
+        </div>
+      </section>
+
+    <!-- Desserts Section -->
+      <section id="Desserts Dishes" class="menu">
+        <h2>Desserts</h2>
+        <div class="menu-grid">
+          <div class="product">
+            <img src="vg.jpg" alt="Roast Beef">
+            <h3>Nutella Crepes</h3>
+          
+            <!-- SIZE OPTIONS -->
+              <select id="size-Nutella Crepes" class="size-option">
+                <option value="Chicken" data-price="185">Chichen - ₱185</option>
+                <option value="Beef" data-price="195">Beef - ₱195</option>
+              </select>
+              <p>
+                <button class="button" onclick="addProductWithSize('Nutella Crepes', 'size-Nutella Crepes')">Add to Cart</button>
+              </p>
+          </div>
+
+
+          <div class="product">
+            <img src="gr.jpg" alt="Pepper Steak Beef">
+            <h3>Nutella Mango Crepes</h3>
+        
+              <!-- SIZE OPTIONS -->
+              <select id="size-Nutella Mango Crepes" class="size-option">
+                <option value="Medium" data-price="210">Medium - ₱210</option>
+                <option value="Large" data-price="280">Large - ₱280</option>
+              </select>
+              <p>
+                <button class="button" onclick="addProductWithSize('Nutella Mango Crepes', 'size-Nutella Mango Crepes')">Add to Cart</button>
+              </p>
+          </div>
+
+
+          <div class="product">
+            <img src="mg.jpg" alt="Beef Curry Special">
+            <h3>Mango Crepes</h3>
+            <p>₱155</p>
+            <p>
+                <button  class="button"onclick="addToCart('Mango Crepes', 155)">Add to Cart</button>
+              </p>
+          </div>
+
+        </div>
+      </section>
+
+    <!-- Mukbang Set Section -->
+      <section id="Mukbang Set" class="menu">
+        <h2>Mukbang Set</h2>
+        <div class="menu-grid">
+          <div class="product">
+            <img src="kf.jpg" alt="Roast Beef">
+            <h3>kofta Kebab Platter</h3>
+            <p> ₱1095</p>
+            <p>
+              <button  class="button"onclick="addToCart('kofta Kebab Platter', 1095)">Add to Cart</button>
+            </p>
+          </div>
+
+
+          <div class="product">
+            <img src="roast.jpg" alt="Pepper Steak Beef">
+            <h3>Roast Chicken</h3>
+            <p>₱499</p>
+            <p>
+              <button  class="button"onclick="addToCart('Roast Chicken', 499)">Add to Cart</button>
+            </p>
+          </div>
+
+
+          <div class="product">
+            <img src="cp.jpg" alt="Beef Curry Special">
+            <h3>Crispy Pata</h3>
+            <p>₱180</p>
+            <p>
+              <button  class="button"onclick="addToCart('Crispy Pata', 180)">Add to Cart</button>
+            </p>
+          </div>
+
+        </div>
+      </section>
+
+    <!-- Snacks And Appetizers Section -->
+      <section id="Snacks And Appetizers" class="menu">
+        <h2>Snacks And Appetizers</h2>
+        <div class="menu-grid">
+          <div class="product">
+            <img src="pp.jpg" alt="Roast Beef">
+            <h3>Pani Puri 15 pieces</h3>
+           
+            <!-- SIZE OPTIONS -->
+              <select id="size-Pani Puri 15 pieces" class="size-option">
+                <option value="Plain" data-price="155">Plain - ₱155</option>
+                <option value="w/ Filling" data-price="265"> w/ Filling - ₱265</option>
+              </select>
+              <p>
+                <button class="button" onclick="addProductWithSize('Pani Puri 15 pieces', 'size-Pani Puri 15 pieces')">Add to Cart</button>
+              </p>
+          </div>
+
+
+          <div class="product">
+            <img src="s.jpg" alt="Pepper Steak Beef">
+            <h3>Shawarma</h3>
+            <p>₱155</p> 
+            <p>
+              <button  class="button"onclick="addToCart('Shawarma', 155)">Add to Cart</button>
+            </p>
+          </div>
+
+
+          <div class="product">
+            <img src="kb.jpg" alt="Beef Curry Special">
+            <h3>Kubos With Masala</h3>
+            
+            <!-- SIZE OPTIONS -->
+              <select id="size-Kubos With Masala" class="size-option">
+                <option value="Chicken" data-price="165">Chichen - ₱165</option>
+                <option value="Beef" data-price="195">Beef - ₱195</option>
+              </select>
+              <p>
+                <button class="button" onclick="addProductWithSize('Kubos With Masala', 'size-Kubos With Masala')">Add to Cart</button>
+              </p>
+          </div>
+
+        </div>
+      </section>
+
+  <!-- About Section -->
+  <section id="about-us" class="info-section">
+    <h2>About Us</h2>
+    <p>Welcome to our restaurant! We serve delicious home-style Filipino dishes with a modern twist.</p>
+    <p>Our mission is to provide a memorable dining experience with quality food and excellent service.</p>
+    <p>Visit us for a taste of authentic Filipino cuisine!</p>
+    <p><strong>Operating Hours:</strong> Monday to Sunday, 10:00 AM - 10:00 PM</p>
+
+    <div class="map-logo-container">
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3872.219609703675!2d121.58820897485971!3d13.945525586466829!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x33bd4d378699add7%3A0x80dbfffc6af2b0a7!2sJoJing&#39;s%20Biryani!5e0!3m2!1sen!2sph!4v1760532683849!5m2!1sen!2sph"
+        allowfullscreen
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+      ></iframe>
+
+      <img src="biryani.jpg" alt="Restaurant Logo" class="restaurant-logo">
+    </div>
+  </section>
+
+</section>
+
+  
+<!-- Contact Section -->
+<section id="contact-us" class="info-section">
+  <h2>Contact Us</h2>
+  <p>Email: jojing`sbiryani@restaurant.com | Phone: (02) 123-4567</p><br>
+  <p>Barangay Isabang, Purok Ilang Ilang, Lucena City, 4301 Quezon</p><br>
+  <p>Follow us on social media:
+    <div class="social-buttons">
+      <a href="https://www.facebook.com/profile.php?id=61562055322663" class="social-btn facebook">Facebook</a>
+      <a href="https://www.instagram.com/jojings_biryani/" class="social-btn instagram">Instagram</a>
+      <a href="https://twitter.com/JojingsBiryani" class="social-btn twitter">Twitter</a>
+    </div>
+  </p>
+
+  <script src="script.js"></script>
+
+</section>
+
+
+<!-- Cart Panel -->
+<div id="cart-panel" class="cart-panel">
+  <div class="cart-header">
+    <h3>Your Cart</h3>
+    <button onclick="closeCart()">✖</button>
+  </div>
+
+  <div id="cart-items" class="cart-items"></div>
+
+  <div class="cart-footer">
+    Total: <span id="cart-total">₱0</span>
+    <button class="checkout-btn" onclick="openCheckout()">Checkout</button>
+  </div>
+</div>
+
+<div id="overlay" class="overlay" onclick="closeCart()"></div>
+
+<!-- CHECKOUT RECEIPT MODAL -->
+<div id="checkoutModal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeCheckout()">&times;</span>
+
+    <h2>Checkout Details</h2>
+
+    <label>Name:</label>
+    <input type="text" id="custName" placeholder="Enter your full name">
+
+    <label>Address:</label>
+    <input type="text" id="custAddress" placeholder="Enter your address">
+
+    <label>Contact Number:</label>
+    <input type="text" id="custNumber" placeholder="Enter your contact number">
+
+    
+    <button class="checkout-btn" onclick="confirmCheckout()">Confirm Order</button><br>
+    <button class="but cancel-btn" onclick="closeCheckout()">Cancel</button>
+  </div>
+</div>
+
+</body>
+</html>
